@@ -1,0 +1,9 @@
+#TODO:
+1. CORS configuration in django settings and learn about it first.
+
+How will it work?
+
+User will send req to backend with his information (name, email, phone number etc.)(which will be saved in database for future use.), then the req will be sent for quote, to doordash api. Then, when the user accept the quote. A request will be sent to restaurant. when the req is accepted then the information is sent to doordash again to create delivery. when the delivery is created, we will recieve dasher info , we will sent the response to the frontend.
+
+
+views = auth(with userinfo), get_quote(with user and restaurant info), accept_quote, delivery_status.
