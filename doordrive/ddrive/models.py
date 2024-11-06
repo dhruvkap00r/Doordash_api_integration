@@ -43,6 +43,11 @@ class User(AbstractBaseUser):
   REQUIRED_FIELDS = ['password']
   USERNAME_FIELD = 'username'
 
+class CartModel(models.Model):
+  itemId = models.CharField(max_length=100)
+  itemCount = models.CharField(max_length=100)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 class Restaurant_info(models.Model):
   business_name = models.CharField(max_length=20)
   address = models.TextField()

@@ -12,7 +12,11 @@ class DeliveryInfoSerializer(serializers.ModelSerializer):
     model = DeliveryInfo
     fields = '__all__' 
   
-  
+class CartSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = CartModel
+    fields = '__all__'
+
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
     model = User

@@ -177,6 +177,39 @@ class testView(APIView):
       "token": "hellp"
     })
 
+"""
+{
+  '(item_id)': '(count)'
+}
+
+"""
+#Cart Operaton
+class AddCartView(APIView):
+  permission_classes = [IsAuthenticated]
+  queryset = CartModel.objects.all()
+  def post(self,request):
+    itemId = request.data.get('itemId')
+    itemCount = request.data.get('count')
+    user = get_user_from_token(request)
+    cart = CartModel.objects.create(itemId=itemId, itemCount=itemCount, user=user)
+    cart.save()
+
+class getCartView(APIView):
+  permission_classes = [IsAuthenticated]
+  queryset = CartModel.objects.all()
+  def post(self,request):
+    user = get_user_from_token(request)
+    CartModel.objects.get(user=user)
+
+class CheckoutView(APIView):
+  permission_classes = [IsAuthenticated]
+  queryset = CartModel.objects.all()
+  def post(self,request):
+    pass
+
+
+
+
 class ListView(generics.ListAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
