@@ -9,6 +9,7 @@ This api is integrated with Doordash drive's api, which offers delivery services
 
 A a rough Documentaion of how to use it.
 How to use?
+
 /api/auth : Enter information to create a user in the database.
 		{first_name, 
 		Last_name,
